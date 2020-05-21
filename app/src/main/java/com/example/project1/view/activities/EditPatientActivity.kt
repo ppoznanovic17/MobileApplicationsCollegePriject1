@@ -10,6 +10,7 @@ import com.example.project1.model.Patient
 import com.example.project1.view.fragments.ListFragments.HospitalisedFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_edit_patient.*
+import java.text.SimpleDateFormat
 
 class EditPatientActivity : AppCompatActivity(R.layout.activity_edit_patient){
 
@@ -22,7 +23,7 @@ class EditPatientActivity : AppCompatActivity(R.layout.activity_edit_patient){
 
     private fun init(){
         intent?.let {
-            patient = it.getParcelableExtra(HospitalisedFragment.SEND_KEY)
+            patient = it.getParcelableExtra(HospitalisedFragment.KEY)
         }
         initUI()
         initListeners()
@@ -35,7 +36,11 @@ class EditPatientActivity : AppCompatActivity(R.layout.activity_edit_patient){
            editPatientLastname.setText(patient!!.lastname)
            editPatientFirstConditionEdit.setText(patient!!.comingState)
            editPatientCurrentConditionEdit.setText(patient!!.currentState)
-           editPatientDate2.text = patient!!.comeDate.toString()
+
+           val sdf = SimpleDateFormat("dd.MM.yyyy")
+           val date: String = sdf.format(patient!!.comeDate)
+
+           editPatientDate2.text = date
        }
 
     }
@@ -62,7 +67,7 @@ class EditPatientActivity : AppCompatActivity(R.layout.activity_edit_patient){
 
 
             if (name.isEmpty() || lastname.isEmpty() || comingState.isEmpty() || currentState.isEmpty()) {
-                Toast.makeText(this, "Sva polja moraju biti popunjena.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.allPropertyFullErr, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             } else {
                 val edited_patient = Patient(
@@ -77,7 +82,7 @@ class EditPatientActivity : AppCompatActivity(R.layout.activity_edit_patient){
                     picture,
                     hospital
                 )
-                returnIntent.putExtra(HospitalisedFragment.SEND_KEY , edited_patient)
+                returnIntent.putExtra(HospitalisedFragment.KEY , edited_patient)
                 setResult(Activity.RESULT_OK, returnIntent)
                 finish()
             }

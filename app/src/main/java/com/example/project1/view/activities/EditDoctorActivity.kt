@@ -63,7 +63,7 @@ class EditDoctorActivity : AppCompatActivity(R.layout.activity_edit_doctor){
             val lastname = sharedPreferences?.getString(SplashActivity.LASTNAME,"")?: ""
 
             if(nameEt.isEmpty() || lastnameEt.isEmpty() || hospitalEt.isEmpty()){
-                Toast.makeText(this, "Sva polja moraju biti popunjena.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.allPropertyFullErr, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

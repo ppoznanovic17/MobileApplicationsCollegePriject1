@@ -25,8 +25,8 @@ import java.util.*
 class HospitalisedFragment: Fragment(R.layout.fragment_hospitalised_list) {
 
     companion object {
-        const val SEND_KEY = "send"
-        const val RECEIVED_KEY = 1111
+        const val KEY = "doctor"
+        const val REQUEST_CODE = 1111
     }
 
     private val hospitalisedListViewModel: HospitalisedListViewModel by activityViewModels()
@@ -44,6 +44,20 @@ class HospitalisedFragment: Fragment(R.layout.fragment_hospitalised_list) {
         initListeners()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val patient = data?.getParcelableExtra<Patient>(KEY)
+                if (patient != null) {
+                    hospitalisedListViewModel.updatePatient(patient)
+                    hospListAdapter.notifyDataSetChanged()
+                    Toast.makeText(context, R.string.savingSuccess, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
 
     private fun initRecycle(){
 
@@ -52,8 +66,8 @@ class HospitalisedFragment: Fragment(R.layout.fragment_hospitalised_list) {
             {
 
                 val intent = Intent(context, EditPatientActivity::class.java)
-                intent.putExtra(SEND_KEY, it)
-                startActivityForResult(intent, RECEIVED_KEY)
+                intent.putExtra(KEY, it)
+                startActivityForResult(intent, REQUEST_CODE)
 
 
 
@@ -69,7 +83,7 @@ class HospitalisedFragment: Fragment(R.layout.fragment_hospitalised_list) {
                 hospListAdapter.notifyDataSetChanged()
 
 
-                Toast.makeText(context,"Pacijent je ozdravio i otpusten je!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,R.string.releasedInfo, Toast.LENGTH_SHORT).show()
 
 
 
@@ -103,18 +117,6 @@ class HospitalisedFragment: Fragment(R.layout.fragment_hospitalised_list) {
         })
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RECEIVED_KEY) {
-            if (resultCode == Activity.RESULT_OK) {
-                val patient = data?.getParcelableExtra<Patient>(SEND_KEY)
-                if (patient != null) {
-                    hospitalisedListViewModel.updatePatient(patient)
-                    hospListAdapter.notifyDataSetChanged()
-                    Toast.makeText(context, "Cuvanje uspelo!", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
+
 
 }

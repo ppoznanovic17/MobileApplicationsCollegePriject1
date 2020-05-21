@@ -53,7 +53,7 @@ class WaitingFragment: Fragment(R.layout.fragment_waiting_list){
                 waitingListAdapter.notifyDataSetChanged()
 
 
-                Toast.makeText(context,"Zdrav i uklonjen", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,R.string.healthyInfo, Toast.LENGTH_SHORT).show()
                 listWaiting.adapter = waitingListAdapter
 
 
@@ -68,7 +68,7 @@ class WaitingFragment: Fragment(R.layout.fragment_waiting_list){
                 waitingListAdapter.notifyDataSetChanged()
 
 
-                Toast.makeText(context,"Hospitalizovan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,R.string.hospInfo, Toast.LENGTH_SHORT).show()
 
 
             })

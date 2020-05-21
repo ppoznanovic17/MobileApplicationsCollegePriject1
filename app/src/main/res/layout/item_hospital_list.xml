@@ -22,13 +22,13 @@
     <TextView
         android:id="@+id/hospNameTv"
         android:layout_width="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/hospImageIv"
+        app:layout_constraintTop_toTopOf="@+id/hospImageIv"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toEndOf="@id/hospImageIv"
-        app:layout_constraintTop_toTopOf="@+id/hospImageIv" />
+        android:layout_marginTop="3dp"/>
 
     <TextView
         android:id="@+id/hospLastnameTv"
