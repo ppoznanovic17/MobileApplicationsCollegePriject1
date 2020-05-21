@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Informacioni sistemi za pracenje stanja pacijenata obolelih od Covid-19</string>
+
+    <string name="search">Pretrazi pacijenta</string>
+
+
+    // login activity
+    <string name="login">Prijavi se</string>
+    <string name="enterName">Unesite ime</string>
+    <string name="enterLastname">Unesite prezime</string>
+    <string name="enterHospital">Unesite ime bolnice u kojoj radite</string>
+    <string name="enterPin">PIN</string>
+    <string name="buttonLogin">Prijavi se</string>
+
+    <string name="pinError">Pin mora da sadrzi 4 broja</string>
+    <string name="wrongPinError">Neispravan pin</string>
+    <string name="wrongCredentials">Ne postoji nalog koji se poklapa sa unetim podacima!</string>
+
+
+    // menu
+    <string name="menuState1">Stanje</string>
+    <string name="menuNewPatient2">Unos</string>
+    <string name="menuList3">Liste</string>
+    <string name="menuProfile4">Profil</string>
+
+    // state fragment
+    <string name="stateTitle"> "Pregled brojnog stanja pacijenata"</string>
+    <string name="stateWaiting">Broj pacijenata u cekaonici:</string>
+    <string name="stateHospitalised">Broj hospitalizovanih pacijenata:</string>
+    <string name="stateReleased">Broj otpustenih pacijenata</string>
+
+    //new patient
+    <string name="newpatientTitle">Unos novog pacijenta</string>
+    <string name="namePh">Unesite ime</string>
+    <string name="lastnamePh">Unesite prezime</string>
+    <string name="conditionsPh">Unesite simptome i opisite stanje pacijenta</string>
+    <string name="newpatientBtn">Dodaj u cekaonicu</string>
+
+    <string name="errorEmpty">Moraju biti popunjena sva polja!</string>
+    <string name="successMsg">Pacijent dodat.</string>
+
+    // waiting list
+    <string name="healthyBtn">Zdrav</string>
+    <string name="hospBtn">Hospitalizacija</string>
+
+    // hospitalisation list
+    <string name="patientState">Karton</string>
+    <string name="releaseBtn">Otpust</string>
+
+    // profile
+    <string name="profilTitle">Podaci o zdravstvenom radniku</string>
+    <string name="profileName">Ime:</string>
+    <string name="profileLastname">Prezime:</string>
+    <string name="profileHospital">Bolnica:</string>
+    <string name="profileChangeBtn">Izmeni</string>
+    <string name="profilLogoutBtn">Odjava</string>
+
+    //edit profile
+    <string name="save">Sacuvaj</string>
+    <string name="discard">Odustani</string>
+
+    // tab menu
+    <string name="wait">Cekaonica</string>
+    <string name="hosp">Hospitalizovani</string>
+    <string name="released">Otpusteni</string>
+
+    // edit patient
+    <string name="editPatientTitle">Karton pacijenta</string>
+    <string name="editPatientFirstState">Stanje pri prijemu</string>
+    <string name="editPatientCurrentState">Trenutno stanje</string>
+    <string name="editPatientDate">Datum prijema:</string>
+    <string name="editPatientDiscard">Odustani</string>
+    <string name="editPatientSave">Izmeni</string>
+</resources>
